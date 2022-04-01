@@ -17,13 +17,13 @@ public class NearestInsertion {
 
     public static void main(String[] args) {
 
-        In in = new In ("files/1Kints.txt");
+        In in = new In ("tsp1000.txt");
 
         int w = in.readInt();
         int h = in.readInt();
-        StdDraw.setCanvasSize(800, 800);
-        StdDraw.setXscale(0, 800);
-        StdDraw.setYscale(0, 800);
+        StdDraw.setCanvasSize(w, h);
+        StdDraw.setXscale(0, w);
+        StdDraw.setYscale(0, h);
         StdDraw.setPenRadius(.005);
 
         // get dimensions
