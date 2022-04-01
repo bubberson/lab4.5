@@ -17,6 +17,7 @@ public class Tour {
     private class Node{
         private Point p;
         private Node next;
+
         public Node(Point p){
             this.p = p;
             next = null;
@@ -29,6 +30,7 @@ public class Tour {
  * * */
     private int n;
     private Node first; //first node in linked list
+    private Node last;
 
     public Tour(){
         first = null;
@@ -70,6 +72,17 @@ public class Tour {
         }
         return count;
     }
+    public void insert(Point p ) {
+        Node newNode = new Node(p);
+        //if empty
+        if (first == null){
+            first = newNode;
+        } else {
+            last.next = newNode;
+        }
+        last = newNode;
+        n = n + 1;
+    }
 
 
 
@@ -84,7 +97,10 @@ public class Tour {
 //    }
 
     double distance() {
+
+
         double distance = 0;
+
         Node thisNode = first;
 
         if (thisNode != null) {

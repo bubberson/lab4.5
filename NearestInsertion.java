@@ -13,6 +13,8 @@
  *************************************************************************/
 import edu.princeton.cs.algs4.*;
 
+import java.sql.Time;
+
 public class NearestInsertion {
 
     public static void main(String[] args) {
@@ -41,6 +43,7 @@ public class NearestInsertion {
         Tour tour = new Tour();
         Stopwatch timer1 = new Stopwatch();
         double elapsed1 = timer1.elapsedTime();
+        long startime = System.currentTimeMillis();
 
         while (!in.isEmpty()) {
             double x = in.readDouble();
@@ -48,6 +51,8 @@ public class NearestInsertion {
             Point p = new Point(x, y);
             tour.insertNearest(p);
             StdOut.print(" " + x + "x \t" + y + "y \n");
+
+
 
 ////             uncomment the 4 lines below to animate
 ////             StdDraw.clear();
@@ -63,6 +68,8 @@ public class NearestInsertion {
 
 //         print tour to standard output
 //        StdOut.println(tour);
+        long endTime = System.currentTimeMillis();
+        System.out.println("total execution Time: " +(endTime - startime) + "ms");
         StdOut.println("Nearest Insertion: " + elapsed1 + " seconds\n");
         StdOut.printf("Tour length = %.4f\n", tour.distance());
         StdOut.printf("Number of points = %d\n", tour.size());

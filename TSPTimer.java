@@ -23,23 +23,24 @@ import edu.princeton.cs.algs4.*;
 public class TSPTimer {
 
     public static void main(String[] args) {
-        In in = new In("tsp1000.txt");
+
         double lo = 0.0, hi = 600.0;
-//        int n = Integer.parseInt(in.readString());
-        Tour tour1 = new Tour();
-        int n = tour1.size();
+        int n = 16000;
+//        int n = tour1.size();
 
         // generate data and run nearest insertion heuristic
         Stopwatch timer1 = new Stopwatch();
+        Tour tour1 = new Tour();
         for (int i = 0; i < n; i++) {
             double x = StdRandom.uniform(lo, hi);
             double y = StdRandom.uniform(lo, hi);
             Point p = new Point(x, y);
             tour1.insertNearest(p);
+
         }
-        double length1 = tour1.size();
+        double length1 = tour1.distance();
         double elapsed1 = timer1.elapsedTime();
-        StdOut.println("Tour length = " + length1);
+        StdOut.println("Tour1 length = " + length1);
         StdOut.println("Nearest insertion:  " + elapsed1 + " seconds");
         StdOut.println();
 
@@ -53,10 +54,11 @@ public class TSPTimer {
             Point p = new Point(x, y);
             tour2.insertSmallest(p);
         }
-        double length2 = tour2.size();
+        double length2 = tour2.distance();
         double elapsed2 = timer2.elapsedTime();
-        StdOut.println("Tour length = " + length2);
+        StdOut.println("Tour2 length = " + length2);
         StdOut.println("Smallest insertion:  " + elapsed2 + " seconds");
+
     }
 
 }
